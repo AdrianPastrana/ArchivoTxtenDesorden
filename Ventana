@@ -1,0 +1,51 @@
+/*
+ * To change this license header, choose License Headers in Project Properties.
+ * To change this template file, choose Tools | Templates
+ * and open the template in the editor.
+ */
+package archivotxtendesorden;
+
+import java.awt.Dimension;
+import java.awt.FlowLayout;
+import javax.swing.JButton;
+import javax.swing.JFrame;
+import javax.swing.JLabel;
+import javax.swing.JPanel;
+import javax.swing.JTextArea;
+import javax.swing.JTextField;
+public class Ventana {
+    static JPanel jp;
+    static JTextArea jt;
+    static JTextField es; 
+    static JLabel et1,et2,et3;
+    static JButton b,ac;
+    Ventana() {
+        Componente c = new Componente();
+        JFrame f = new JFrame();
+        f.setSize(800, 400); 
+        f.setTitle(" Archivo "); 
+        f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE); 
+        f.setLayout(new FlowLayout()); 
+        jp= new JPanel();
+        jp.setPreferredSize(new Dimension (100,100));
+        b=c.getButton("Cargar archivo ");
+        b.addActionListener( new Eventos());
+        f.add(jp);
+        f.add(b);
+        jt=new JTextArea(10,70);
+        et1 = c.getLabel(" Ingresa texto ordenado: ");
+        es = c.getCaja(60);
+        ac=c.getButton("Aceptar");
+        ac.addActionListener( new Eventos());
+        et2=c.getLabel("El texto ordenado es:");
+        et3=c.getLabel("... ");
+        f.add(jt);
+        f.add(et1);
+        f.add(es);
+        f.add(ac);
+        f.add(et2);
+        f.add(et3);
+        f.setVisible(true);
+ 
+    }
+}
